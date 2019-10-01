@@ -1,0 +1,20 @@
+{
+  "name": "@triplespeeder/web3-eventfetcher",
+  "version": "1.0.0",
+  "description": "Fetch contract events asynchronous with progress update",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web3",
+    "contract",
+    "events",
+    "ethereum"
+  ],
+  "author": "Michael Bauer",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib"
+  }
+}
