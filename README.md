@@ -16,15 +16,15 @@ Web3-eventfetcher needs a contract instance that provides the "getPastEvents" me
 To start fetching events an Options object needs to be provided:
 ```javascript
 {
-    contract = <instance>               // The contract instance. Required!
-    eventName = <string>                // The event to look for. Required!
-    const fromBlock = <number>          // Required!
-    const toBlock = <number>            // Required!
-    const filter = <filter object>      // Optional filter as described in https://web3js.readthedocs.io/en/v1.2.0/web3-eth-contract.html#getpastevents 
-    const progressCallback = <function> // Optional progress callback. See below
-    const chunkSize = <number>          // Optional. Sets the number of blocks that are queried on one call. E.g. looking
-                                        // at 1000 Blocks with a chunksize of 50 results in 20 backend requests (and 20 
-                                        // progress callbacks). Default value: 100
+    contract: <instance>,         // The contract instance. Required!
+    eventName: <string>,          // The event to look for. Required!
+    fromBlock: <number>,          // Required!
+    toBlock: <number>,            // Required!
+    filter: <filter object>,      // Optional filter as described in https://web3js.readthedocs.io/en/v1.2.0/web3-eth-contract.html#getpastevents 
+    progressCallback: <function>, // Optional progress callback. See below
+    chunkSize: <number>,          // Optional. Sets the number of blocks that are queried on one call. E.g. looking
+                                  // at 1000 Blocks with a chunksize of 50 results in 20 backend requests (and 20 
+                                  // progress callbacks). Default value: 100
 }
 ```
 
