@@ -1,6 +1,6 @@
 {
   "name": "@triplespeeder/web3-eventfetcher",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Fetch contract events asynchronous with progress update",
   "repository": "https://github.com/TripleSpeeder/web3-eventfetcher.git",
   "main": "index.js",
