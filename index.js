@@ -1,3 +1,1 @@
-module.exports = {
-    eventFetcher: require('./lib/eventFetcher')
-}
+module.exports = require('./lib/eventFetcher')
