@@ -60,11 +60,14 @@ console.log(events)
 ### Progress callback
 The optional progressCallback function gets called after each chunk (see "chunksize" above) with these parameters:
 ```
-stepsComplete: Number of steps/chunks that are done
-totalSteps: Total number of steps/chunks to be completed
-percentageComplete: Percentage of steps completed
-stepResults: Array of event results that were fetched with the last step.
-
+{
+    stepsComplete: Number of steps/chunks that are done
+    totalSteps: Total number of steps/chunks to be completed
+    percentageComplete: Percentage of steps completed
+    stepResults: Array of event results that were fetched with the last step.
+    stepFromBlock: First block that has been covered in this step
+    stepToBlock: Last block that has been covered in this step
+}
 ```
 
 ### Cancel fetching
