@@ -13,12 +13,13 @@ const OKExAddress = '0x6cc5f688a315f3dc28a7781717a9a798a59fda7b'
 const HuobiAddress = '0x1062a747393198f70f71ec65a582423dba7e5ab3'
 
 /*
-    Note: These tests require a main network node to run and accept websocket connections at localhost:8546
+    Note: These tests require a main network node to run and accept websocket connections at below url
 */
+const web3Connection = 'ws://localhost:8556'
 
 describe('Check web3 availability', function(){
     before('initialize web3 connection', function() {
-        web3 = new Web3("ws://localhost:8546");
+        web3 = new Web3(web3Connection);
     })
 
     it ('gets correct version', function() {
@@ -56,6 +57,9 @@ describe('check eventFetcher', function() {
         // In this blockrange there are 40 "approval" events of the TUSD contract
         const expectedApprovalEvents = 40
 
+        // set comfortable timeout for slow node
+        this.timeout(10000);
+
         const fetchOptions = {
             contract: contractInstance,
             eventName: 'Approval',
@@ -74,6 +78,9 @@ describe('check eventFetcher', function() {
 
         const progressCallback = sinon.fake()
         const expectedCallbacks = 10 // default chunksize is 100 blocks -> 990 blocks/100 = 9.9 rounded up to 10
+
+        // set comfortable timeout for slow node
+        this.timeout(10000);
 
         const fetchOptions = {
             contract: contractInstance,
@@ -98,6 +105,9 @@ describe('check eventFetcher', function() {
         const chunkSize = 61
         const expectedCallbacks = 17 // chunksize is 61 blocks -> 990 blocks/61 = 16.22 rounded up to 17
 
+        // set comfortable timeout for slow node
+        this.timeout(10000);
+
         const fetchOptions = {
             contract: contractInstance,
             eventName: 'Transfer',
@@ -107,7 +117,7 @@ describe('check eventFetcher', function() {
             progressCallback: progressCallback,
             chunkSize: chunkSize,
         }
-        let events = await eventFetcher.fetch(fetchOptions)
+        await eventFetcher.fetch(fetchOptions)
         sinon.assert.callCount(progressCallback,expectedCallbacks)
     })
 
