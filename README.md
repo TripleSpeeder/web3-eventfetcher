@@ -30,7 +30,7 @@ To start fetching events an Options object needs to be provided:
 
 ### Initializing and fetching events
 ```javascript
-const EventFetcher = require('../lib/eventFetcher')
+const EventFetcher = require('eventFetcher')
 
 /* Initialize contract instance using @truffle/contract */
 const erc20ABI = require('human-standard-token-abi')
