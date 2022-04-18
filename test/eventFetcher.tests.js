@@ -8,16 +8,16 @@ const Web3 = require('web3');
 const erc20ABI = require('human-standard-token-abi')
 const contract = require('@truffle/contract')
 
-let web3
 const OKExAddress = '0x6cc5f688a315f3dc28a7781717a9a798a59fda7b'
 const HuobiAddress = '0x1062a747393198f70f71ec65a582423dba7e5ab3'
 
 /*
     Note: These tests require a main network node to run and accept websocket connections at below url
 */
-const web3Connection = 'ws://localhost:8556'
+const web3Connection = 'ws://geth.dappnode:8546'
 
 describe('Check web3 availability', function(){
+    let web3
     before('initialize web3 connection', function() {
         web3 = new Web3(web3Connection);
     })
@@ -38,6 +38,11 @@ describe('check eventFetcher', function() {
     let contractInstance
     const tetherUSDTAddress = '0xdac17f958d2ee523a2206206994597c13d831ec7'
     let eventFetcher = new EventFetcher()
+    let web3
+
+    before('initialize web3 connection', function() {
+        web3 = new Web3(web3Connection);
+    })
 
     before('initialize Tether ERC20 contract', async function() {
         const ERC20Contract = contract({abi: erc20ABI})
